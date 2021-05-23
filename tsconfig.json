@@ -22,8 +22,7 @@
     "jsx": "react-jsx"
   },
   "include": [
-    "src",
-    "/**/fonts",
-    "/**/components/Logo/index.css"
+    "src" 
+  
   ]
 }

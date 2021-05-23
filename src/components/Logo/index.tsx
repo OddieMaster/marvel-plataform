@@ -1,22 +1,17 @@
 import React from 'react';
-import { Marvel } from '../../styles/themes/marvel';
-import { Rectangle } from '../../styles/themes/rectangle';
-import styled from "styled-components";
+import { Marvel, Rectangle, Container } from './LogoElements';
 
+interface navBar {
+    Active?: boolean;
+}
 
-const Div = styled.div`
-position: relative;
-top: -250px;
-`
-
-const Logo: React.FC = () => {
+const Logo: React.FC<navBar> = (props) => {
+    const Active = props;
     return <div >
-        <Div>
-
-        <Rectangle />        
-        <Marvel>Marvel</Marvel>
-        
-        </Div>
+        <Container>
+            <Rectangle {...Active ? Active : null} />
+            <Marvel {...Active ? Active : null} >Marvel</Marvel>
+        </Container>
     </div>;
 }
 
