@@ -1,7 +1,7 @@
 import React from 'react';
-
+import ImgLogo from '../../assets/roundedPhoto.png'
 import Logo from '../Logo';
-import { Nav, NavLink, Line, Container, ContainerLogo } from './NavBarElements';
+import { Nav, NavLink, Container, ContainerLogo } from './NavBarElements';
 
 
 
@@ -13,27 +13,29 @@ const NavBar: React.FC = () => {
     <Logo Active />
       </ContainerLogo>
       <Nav>      
-        <NavLink to="/">
+        <NavLink  signOutText={false} to="/">
         </NavLink>
 
-        <NavLink to="/Personagens">
+        <NavLink  signOutText={false} to="/Personagens">
           Personagens
         </NavLink>
-        <NavLink to="/Filmes">
+        <NavLink  signOutText={false} to="/Filmes">
           Filmes
         </NavLink>
-        <NavLink to="/HQ">
+        <NavLink  signOutText={false} to="/HQ">
           HQ
         </NavLink>
-        <NavLink to="/Profile">
-          <img src={require('../../assets/logo.svg')} alt='logo' />
+        <NavLink  signOutText={false} to="/Profile">
+          <img src={ImgLogo} alt='logo' height="70px" width="70px"/>
         </NavLink>
-        <NavLink to="/">
+        <NavLink  signOutText to="/">
           Sair
         </NavLink>
-      </Nav>
-      </Container>      
-      <Line />
+      </Nav>      
+      </Container>  
+    
+      
+      
    
   </>
     ;

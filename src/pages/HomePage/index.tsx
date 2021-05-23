@@ -5,7 +5,8 @@ import NavBar from '../../components/NavBar/index'
 const HomePage: React.FC = () => {
   return <>
     <NavBar></NavBar>
-    <MovieInformation title={"testando"} description={"testando"} />
+    <MovieInformation title={"Homem-Aranha"} description={"Após ser mordido por uma aranha radioativa, Peter Parker se torna o amigo da vizinhança, e Homem-Aranha"} hero={"homemaranha"} />
+   
   </>
 }
 

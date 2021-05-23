@@ -3,14 +3,15 @@ import { FirstBackground, ContainerInfo, InfoBackground, Title, Description, Det
 
 interface Props {
     description: string;
-    title: string;
+    title: string;    
+    hero: string;
 }
 const MovieInformation: React.FC<Props> = (props) => {
-    const { description, title } = props;
+    const { description, title, hero } = props;      
     return <>
         <ContainerInfo>
-            <FirstBackground>
-                <InfoBackground>
+            <FirstBackground hero={hero}>
+                <InfoBackground >
                     <Title>{title}</Title>
                     <Description>{description}</Description>   
                     <Details>ver detalhes</Details>            
