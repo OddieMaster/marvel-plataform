@@ -16,7 +16,7 @@ const Form: React.FC = () => {
         <Div checkbox> Salvar login</Div>
         <Ref href="default.asp" target="_blank">Esqueci a senha</Ref>
       </Container2> 
-        <Link to="/homePage"><Button>Entrar</Button></Link>
+        <Link to="/Personages"><Button>Entrar</Button></Link>
       <Container3>
         <Div registerInfo> Ainda não tem login?</Div>
         <Ref href="default.asp" target="_blank" register>Cadastre-se</Ref>        

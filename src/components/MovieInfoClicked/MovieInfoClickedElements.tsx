@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, {css} from 'styled-components'
 import ZeroStar from './../../assets/0tar.png'
 import OneStar from './../../assets/1tar.png'
 import TwoStar from './../../assets/2tar.png'
@@ -10,6 +10,9 @@ import CloseButton from './../../assets/closeButton.png'
 
 interface StarProps {
     stars: number;
+}
+interface Sided {
+    leftSide?: boolean;
 }
 
 
@@ -36,20 +39,24 @@ const handleStarsType = (stars: number) => {
     }
 }
 
-export const ContainerInfoRight = styled.div`
+export const ContainerInfo = styled.div`
 display: flex;
 width: 100vw;
 height: 439px;
 justify-content: flex-start;
 margin-left: 132px;
+background: pink;
 `
 
-export const PhotoBackground = styled.div`
+export const PhotoBackground = styled.div<Sided>`
 display: flex;
 width: 289px;
 height: 439px;
 justify-content: flex-start;
-
+${({ leftSide }) => leftSide &&
+        css`
+        margin-bottom: 50px;
+     }`}
 `
 export const RedBackground = styled.div`
 display: flex;

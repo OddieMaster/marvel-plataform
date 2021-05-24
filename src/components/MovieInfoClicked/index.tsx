@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FirstBackground } from '../MovieInformation/MovieInformationElements'
-import { ContainerInfoRight, PhotoBackground, RedBackground, TitleClicked, Aparitions, DescriptionsContainer, AvaliationTitle, Stars, CloseDetailsButton } from './MovieInfoClickedElements'
+import { ContainerInfo, PhotoBackground, RedBackground, TitleClicked, Aparitions, DescriptionsContainer, AvaliationTitle, Stars, CloseDetailsButton } from './MovieInfoClickedElements'
+
 interface Props {
   hero: string;
   title: string;
@@ -11,14 +12,15 @@ interface Props {
   aparitions4?: string;
   aparitions5?: string;
   stars: number;
+  leftSide: boolean;
 }
 const MovieInfoClicked: React.FC<Props> = (props) => {
-  const { hero, title, aparitions, aparitions2, aparitions3, aparitions4, aparitions5, stars } = props;
+  const { hero, title, aparitions, aparitions2, aparitions3, aparitions4, aparitions5, stars, leftSide } = props;
   return <>
-    <ContainerInfoRight>
+    <ContainerInfo>
       <RedBackground>
         <FirstBackground hero={hero}>
-          <PhotoBackground></PhotoBackground>
+          <PhotoBackground leftSide={leftSide}></PhotoBackground>
         </FirstBackground>
         <DescriptionsContainer>
           <TitleClicked>{title} </TitleClicked>
@@ -28,7 +30,7 @@ const MovieInfoClicked: React.FC<Props> = (props) => {
           <Link to="/Personages"  style={{ textDecoration: 'none', border:'none' }}><CloseDetailsButton /></Link>
         </DescriptionsContainer>
       </RedBackground>
-    </ContainerInfoRight>
+    </ContainerInfo>
   </>;
 }
 
