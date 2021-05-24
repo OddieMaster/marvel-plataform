@@ -41,11 +41,11 @@ const handleStarsType = (stars: number) => {
 
 export const ContainerInfo = styled.div`
 display: flex;
-width: 100vw;
-height: 439px;
+width: 100%;
+height: 720px;
 justify-content: flex-start;
-margin-left: 132px;
 background: pink;
+flex-direction: row;
 `
 
 export const PhotoBackground = styled.div<Sided>`
@@ -58,17 +58,23 @@ ${({ leftSide }) => leftSide &&
         margin-bottom: 50px;
      }`}
 `
-export const RedBackground = styled.div`
+export const RedBackground = styled.div<Sided>`
 display: flex;
-background: red;
+background: linear-gradient(90deg, rgba(255,0,0,1) 0%, rgba(255,0,0,1) 35%, rgba(144,12,12,1) 100%);
 width: 650px;
 height: 439px;
 justify-content: flex-start;
 border-radius: 35px;
+
+${({ leftSide }) => leftSide &&
+        css`
+        align-self: flex-end;
+        margin-bottom: 50px;
+     }`}
 `
 export const DescriptionsContainer = styled.div`
 display: flex;
-background: red;
+ background: linear-gradient(90deg, rgba(42,0,255,0) 0%, rgba(255,0,0,0) 35%, rgba(255,255,255,0) 100%);
 width: 360px;
 height: 439px;
 justify-content: space-around;
@@ -94,25 +100,28 @@ display: flex;
 color: white;
 font-size: 26px;
 align-self: center;
+
 `
 export const Stars = styled.div<StarProps>`
 display: flex;
-background-color: red;
 background-image:url(${({ stars }) => handleStarsType(stars)});
 height: 50px;
 width: 120px;
 position: relative;
 align-self: center;
+right: 40px;
+bottom: 30px;
 `
 
 export const CloseDetailsButton = styled.button`
 display: flex;
-  width: 40px;
+  width: 30px;
   position: relative;
   align-self: flex-end;
-  height: 40px;    
+  height: 30px;    
   margin-left: 300px;
-  margin-bottom: 10px;
+  bottom: 10px;
+  right: 15px;
   background: url(${CloseButton}); 
   border:none!important;
   ;

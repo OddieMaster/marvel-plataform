@@ -46,6 +46,7 @@
     ]
   },
   "devDependencies": {
-    "@types/styled-components": "^5.1.9"
+    "@types/styled-components": "^5.1.9",
+    "file-loader": "^6.2.0"
   }
 }

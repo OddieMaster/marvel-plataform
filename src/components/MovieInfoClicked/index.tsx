@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { FirstBackground } from '../MovieInformation/MovieInformationElements'
 import { ContainerInfo, PhotoBackground, RedBackground, TitleClicked, Aparitions, DescriptionsContainer, AvaliationTitle, Stars, CloseDetailsButton } from './MovieInfoClickedElements'
 
@@ -13,9 +12,10 @@ interface Props {
   aparitions5?: string;
   stars: number;
   leftSide: boolean;
+  addControl: any;
 }
 const MovieInfoClicked: React.FC<Props> = (props) => {
-  const { hero, title, aparitions, aparitions2, aparitions3, aparitions4, aparitions5, stars, leftSide } = props;
+  const { hero, title, aparitions, aparitions2, aparitions3, aparitions4, aparitions5, stars, leftSide, addControl } = props;
   return <>
     <ContainerInfo>
       <RedBackground>
@@ -27,7 +27,7 @@ const MovieInfoClicked: React.FC<Props> = (props) => {
           <Aparitions>Aparições:<br></br>{aparitions}<br></br>{aparitions2}<br></br>{aparitions3}<br></br>{aparitions4}<br></br>{aparitions5}</Aparitions>
           <AvaliationTitle>Avaliação dos Fãs</AvaliationTitle>
           <Stars stars={stars}></Stars>
-          <Link to="/Personages"  style={{ textDecoration: 'none', border:'none' }}><CloseDetailsButton /></Link>
+         <CloseDetailsButton  onClick={()=> addControl(0)} />
         </DescriptionsContainer>
       </RedBackground>
     </ContainerInfo>

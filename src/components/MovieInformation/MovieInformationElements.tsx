@@ -39,16 +39,16 @@ const handleBackgroundType = (hero: string) => {
 
 export const FirstBackground = styled.div<HeroProps>`
 display: flex;
-background-color: red;
+background:red;
 background-image:url(${({ hero }) => handleBackgroundType(hero)});
 height: 439px;
 position: relative;
 border-radius: 35px;
+
 `
 
 export const InfoBackground = styled.div`
 display: flex;
-background-color: red;
 width: 289px;
 height: 234px;
 position: relative;
@@ -67,6 +67,7 @@ margin-top: 20px;
 font-size: 20px;
 border:none!important;
 align-self: center;
+
 
 `
 export const Title = styled.p`

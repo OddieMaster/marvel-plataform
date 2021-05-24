@@ -1,4 +1,5 @@
-import styled, { css } from "styled-components";
+import styled, {  css } from "styled-components";
+import AxiformaBold from "../../fonts/types/Kastelov - Axiforma Bold.otf"
 
 interface InputProps {
   primary?: boolean;
@@ -7,6 +8,8 @@ interface InputProps {
   register?: boolean;
   registerInfo?: boolean;
 }
+
+
 
 export const Container2 = styled.div`
 display: flex;
@@ -73,6 +76,7 @@ export const Div = styled.div<InputProps>`
   color: red;  
   font-size: 3.0rem;
   font-weight: bold;
+  font-family: ${AxiformaBold};
   ${({ primary }) =>
     primary &&
     css` 
@@ -104,7 +108,7 @@ export const CheckBox = styled.input`
 
 export const Ref = styled.a<InputProps>`
   display: flex;
-  align-self: center; 
+  align-self: center;   
   color: #84848d;  
   font-size: 1.8rem;
   text-decoration: underline;
@@ -126,7 +130,7 @@ export const Button = styled.button`
   width: 393px;
   height: 79px;
   border-radius: 100px;
-  font-size: 3.6rem;
+  font-size: 3.6rem; 
   background-color: red;
   color: white;  
   `
