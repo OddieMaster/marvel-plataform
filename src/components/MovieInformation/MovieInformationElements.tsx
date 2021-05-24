@@ -1,8 +1,17 @@
-import styled from 'styled-components'
+import styled, {css} from 'styled-components'
 import HomemAranha from '../../assets/homemaranhaFINAL.jpg'
+import Thanos from '../../assets/thanosFINAL.jpg'
+import Wanda from '../../assets/wandaFINAL.jpg'
+import Hulk from '../../assets/hulkFINAL.jpg'
+
 interface HeroProps {
-    hero: string;  
+    hero: string;
+
 }
+interface smallText {
+    smallText: boolean;
+}
+
 
 export const ContainerInfo = styled.div`
 display: flex;
@@ -10,25 +19,28 @@ width: 289px;
 height: 439px;
 `
 
-const handleBackgroundType = (hero:string) => {
+const handleBackgroundType = (hero: string) => {
 
     switch (hero) {
         case "homemaranha":
             return HomemAranha;
 
         case "wanda":
-            return "blue";
-            
+            return Wanda;
+
         case "thanos":
-            return "green";
+            return Thanos;
+            
+        case "hulk":
+            return Hulk;
     }
 }
+
 
 export const FirstBackground = styled.div<HeroProps>`
 display: flex;
 background-color: red;
-background-image:url(${({hero})=> handleBackgroundType(hero)});
-width: 289px;
+background-image:url(${({ hero }) => handleBackgroundType(hero)});
 height: 439px;
 position: relative;
 border-radius: 35px;
@@ -51,9 +63,10 @@ export const Details = styled.button`
 display: flex;
 color: white;
 background-color: rgba(0,0,0,0.0);
-margin-top: 43px;
+margin-top: 20px;
 font-size: 20px;
 border:none!important;
+align-self: center;
 
 `
 export const Title = styled.p`
@@ -63,11 +76,15 @@ font-size: 22px;
 margin-bottom: 10px;
 margin-top: 30px;
 `
-export const Description = styled.p`
+export const Description = styled.p<smallText>`
 display: flex;
 color: white;
 font-size: 15px;
 margin-top: -5px;
 margin-left: 10px;
 margin-right: 3px;
+${({ smallText }) => smallText &&
+        css`
+        margin-bottom: 50px;
+     }`}
 `

@@ -63,7 +63,7 @@ export const Input = styled.input<InputProps>`
   height: 73px;
   border-radius: 100px;
   &::-webkit-input-placeholder {
-    font-size: 25px;
+    font-size: 2.5rem;
     position: relative;
     left: 30px;
   }
@@ -71,7 +71,7 @@ export const Input = styled.input<InputProps>`
   `;
 export const Div = styled.div<InputProps>`
   color: red;  
-  font-size: 30px;
+  font-size: 3.0rem;
   font-weight: bold;
   ${({ primary }) =>
     primary &&
@@ -83,7 +83,7 @@ export const Div = styled.div<InputProps>`
     checkbox &&
     css` 
       color: #84848d;     
-      font-size: 18px;  
+      font-size: 1.8rem;  
       margin-right: 170px; 
 
       }
@@ -92,7 +92,7 @@ export const Div = styled.div<InputProps>`
     registerInfo &&
     css`     
     color: #84848d;
-    font-size: 18px;
+    font-size: 1.8rem;
     }
   `}`
 
@@ -106,7 +106,7 @@ export const Ref = styled.a<InputProps>`
   display: flex;
   align-self: center; 
   color: #84848d;  
-  font-size: 18px;
+  font-size: 1.8rem;
   text-decoration: underline;
   text-decoration-color: red;
   margin-right: 15px;
@@ -116,7 +116,7 @@ export const Ref = styled.a<InputProps>`
     css` 
       color: red;
       display: flex;          
-      font-size: 18px;
+      font-size: 1.8rem;
       text-decoration: none;
       margin-left: 5px;
       }
@@ -126,7 +126,7 @@ export const Button = styled.button`
   width: 393px;
   height: 79px;
   border-radius: 100px;
-  font-size: 36px;
+  font-size: 3.6rem;
   background-color: red;
   color: white;  
   `

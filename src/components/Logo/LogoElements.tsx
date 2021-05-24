@@ -4,19 +4,19 @@ interface navBar {
     Active?: boolean;
 }
 export const Container = styled.div<navBar>`
-padding: 10px;
+padding: 1.0rem;
 align-items: flex-start;
 `;
 
 export const Marvel = styled.div<navBar>`
 color: white;
-font-size: 120px;
+font-size: 12.0rem;
 width: 403px;
 height: 133px;
 position: absolute;
 ${({ Active }) => Active &&
         css`
-        font-size: 50px;
+        font-size: 5.0rem;
         width: 403px;
         height: 133px;
      }`}
