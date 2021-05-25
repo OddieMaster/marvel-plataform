@@ -1,4 +1,4 @@
-import styled, {css} from 'styled-components'
+import styled, { css } from 'styled-components'
 import ZeroStar from './../../assets/0tar.png'
 import OneStar from './../../assets/1tar.png'
 import TwoStar from './../../assets/2tar.png'
@@ -44,7 +44,7 @@ display: flex;
 width: 100vw;
 height:439px;
 justify-content: center;
-background:linear-gradient(90deg, rgba(145,29,29,0) 0%, rgba(255,0,0,0) 50%, rgba(145,29,29,0) 100%);
+background:rgba(0,0,0,0) 100%;
 flex-direction: row;
 `
 

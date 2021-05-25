@@ -1,4 +1,4 @@
-import styled, {css} from 'styled-components'
+import styled, { css } from 'styled-components'
 import HomemAranha from '../../assets/homemaranhaFINAL.jpg'
 import Thanos from '../../assets/thanosFINAL.jpg'
 import Wanda from '../../assets/wandaFINAL.jpg'
@@ -6,7 +6,7 @@ import Hulk from '../../assets/hulkFINAL.jpg'
 
 interface HeroProps {
     hero: string;
-    left?:boolean;
+    left?: boolean;
 }
 interface smallText {
     smallText: boolean;
@@ -17,7 +17,7 @@ export const ContainerInfo = styled.div`
 display: flex;
 width: 300px;
 height: 439px;
-background: red;
+background: rgba(0,0,0,0) 100%;;
 justify-content: center;
 `
 
@@ -32,7 +32,7 @@ const handleBackgroundType = (hero: string) => {
 
         case "thanos":
             return Thanos;
-            
+
         case "hulk":
             return Hulk;
     }
@@ -41,7 +41,7 @@ const handleBackgroundType = (hero: string) => {
 
 export const FirstBackground = styled.div<HeroProps>`
 display: flex;
-background:red;
+background:rgba(0,0,0,0) 100%;
 background-image:url(${({ hero }) => handleBackgroundType(hero)});
 height: 439px;
 border-radius: 35px;

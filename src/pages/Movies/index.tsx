@@ -1,23 +1,18 @@
 import React, { useState } from 'react';
 import NavBar from '../../components/NavBar';
 import { ContainerSelect, Select } from './MoviesElements';
-import MovieInformation from '../../components/MovieInformation';
-import { ContainerCards, ContainerButton, BackButton, Button, ContainerOpacity, ContainerAbsolute } from '../Personages/PersonagesElements';
-
+import { Pzim } from '../HQs/HQsElements'
 interface MoviesValues {
   selectedValue: string;
-  
 }
-
 
 const Movies: React.FC<MoviesValues> = () => {
   const [value, setValue] = useState<string>("");
-  var display = false;
+
   const handleChange = (event: any) => {
     setValue(event.target.value);
-    console.log(value)
   };
-  
+
   return <>
     <NavBar></NavBar>
     <ContainerSelect>
@@ -26,8 +21,11 @@ const Movies: React.FC<MoviesValues> = () => {
         <option value="Lançamento">Lançamento</option>
         <option value="Cronologia">Cronologia</option>
       </Select>
-    </ContainerSelect> 
-
+    </ContainerSelect>
+    {value === "Cronologia" && (<>
+      <Pzim>Cards da cronologia</Pzim> </>)}
+    {value === "Lançamento" && (<>
+      <Pzim>Cards de lançamento</Pzim> </>)}
   </>;
 }
 

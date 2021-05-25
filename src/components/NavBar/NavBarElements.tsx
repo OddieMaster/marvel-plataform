@@ -1,19 +1,19 @@
-import styled, {css} from 'styled-components'
+import styled, { css } from 'styled-components'
 import { NavLink as Link } from 'react-router-dom'
 
 
-interface Aligments {    
+interface Aligments {
   photo?: boolean;
-  Opacity?:boolean;
-    }
+  Opacity?: boolean;
+}
 
 export const Container = styled.div<Aligments>`
 ${({ Opacity }) => Opacity &&
-        css`
+    css`
         opacity: 0.2;
      }`}
 display: flex;
-background-color: lightblue;
+background-color: rgba(0,0,0,0) 100%;
 flex-direction: row;
 width: 100%;
 height: 100%;
@@ -22,14 +22,14 @@ border-bottom:1px solid red;
 `;
 
 export const ContainerLogo = styled.div`
-background-color: green;
+background-color:rgba(0,0,0,0) 100%;
 width: 50%;
 height: 80px;
 display: flex;
 
 `;
 export const Photo = styled.div`
-background-color: pink;
+background-color: rgba(0,0,0,0) 100%;
 width: 20%;
 height: 80px;
 display: flex;
@@ -47,7 +47,7 @@ justify-content: space-around;
 width: 95%;
 `;
 
-export const NavLink = styled(Link)<Aligments>`
+export const NavLink = styled(Link) <Aligments>`
 color: #fff;
 display: flex;
 align-items: center;
@@ -58,7 +58,7 @@ height: 100%;
 cursor: pointer;
 font-size: 2.1rem;
 ${({ photo }) => photo &&
-        css`
+    css`
         font-size: 1.9rem;
         margin-left: -15px;
      }`}

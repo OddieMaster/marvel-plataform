@@ -3,23 +3,22 @@ import { FirstBackground, ContainerInfo, InfoBackground, Title, Description, Det
 
 interface Props {
     description: string;
-    title: string;    
-    hero: string;    
-    smallText: boolean;    
+    title: string;
+    hero: string;
+    smallText: boolean;
     addControl: any;
     control: number;
 }
 
 const MovieInformation: React.FC<Props> = (props) => {
-    const { description, title, hero,  smallText, control, addControl } = props;      
+    const { description, title, hero, smallText, control, addControl } = props;
     return <>
-        <ContainerInfo>            
+        <ContainerInfo>
             <FirstBackground hero={hero} >
                 <InfoBackground >
                     <Title>{title}</Title>
-                    <Description smallText={smallText}>{description}</Description>   
-                    <Details onClick={()=> addControl(control)}>ver detalhes</Details>    
-                    {console.log(control)}       
+                    <Description smallText={smallText}>{description}</Description>
+                    <Details onClick={() => addControl(control)}>ver detalhes</Details>                  
                 </InfoBackground>
             </FirstBackground>
         </ContainerInfo>

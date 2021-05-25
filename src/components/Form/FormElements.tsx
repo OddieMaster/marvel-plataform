@@ -1,5 +1,4 @@
-import styled, {  css } from "styled-components";
-import AxiformaBold from "../../fonts/types/Kastelov - Axiforma Bold.otf"
+import styled, { css } from "styled-components";
 
 interface InputProps {
   primary?: boolean;
@@ -13,21 +12,11 @@ interface InputProps {
 
 export const Container2 = styled.div`
 display: flex;
-background-color: black;
-width: 420px;
+background-color: (0,0,0,0);
+width: 400px;
 height: 25px;
 justify-content: space-between;
 align-self: center;  
-> * {
-      &:first-child {
-          
-      }
-    }
-> * {
-      &:nth-child(0) {      
-      justify-content: flex-end;
-      }
-    }
 `
 
 export const Container3 = styled.div`
@@ -75,8 +64,7 @@ export const Input = styled.input<InputProps>`
 export const Div = styled.div<InputProps>`
   color: red;  
   font-size: 3.0rem;
-  font-weight: bold;
-  font-family: ${AxiformaBold};
+  font-weight: bold; 
   ${({ primary }) =>
     primary &&
     css` 
@@ -87,9 +75,8 @@ export const Div = styled.div<InputProps>`
     checkbox &&
     css` 
       color: #84848d;     
-      font-size: 1.8rem;  
-      margin-right: 170px; 
-
+      font-size: 1.8rem;        
+      margin-left: -130px;
       }
     `}
     ${({ registerInfo }) =>
@@ -104,6 +91,7 @@ export const Div = styled.div<InputProps>`
 export const CheckBox = styled.input`
   outline: 2px groove #FF0000;
   outline-offset: 0px; 
+  margin-left: 20px;
   `
 
 export const Ref = styled.a<InputProps>`
@@ -113,8 +101,7 @@ export const Ref = styled.a<InputProps>`
   font-size: 1.8rem;
   text-decoration: underline;
   text-decoration-color: red;
-  margin-right: 15px;
-  text-decoration-thickness: 2.3px;
+  margin-right: 15px; 
   ${({ register }) =>
     register &&
     css` 

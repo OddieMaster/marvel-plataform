@@ -13,7 +13,7 @@ interface Props {
   stars: number;
   leftSide: boolean;
   addControl: any;
-  left?:boolean;
+  left?: boolean;
 }
 const MovieInfoClicked: React.FC<Props> = (props) => {
   const { hero, title, aparitions, aparitions2, aparitions3, aparitions4, aparitions5, stars, leftSide, addControl, left } = props;
@@ -28,7 +28,7 @@ const MovieInfoClicked: React.FC<Props> = (props) => {
           <Aparitions>Aparições:<br></br>{aparitions}<br></br>{aparitions2}<br></br>{aparitions3}<br></br>{aparitions4}<br></br>{aparitions5}</Aparitions>
           <AvaliationTitle>Avaliação dos Fãs</AvaliationTitle>
           <Stars stars={stars}></Stars>
-         <CloseDetailsButton  onClick={()=> addControl(0)} />
+          <CloseDetailsButton onClick={() => addControl(0)} />
         </DescriptionsContainer>
       </RedBackground>
     </ContainerInfo>

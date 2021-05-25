@@ -1,10 +1,8 @@
 import { createGlobalStyle } from 'styled-components';
 import MarvelRegularFont from './types/MarvelRegular-Dj83.ttf';
 
-
 declare module '*.ttf';
 declare module '*.otf';
-
 
 export const MarvelRegular = createGlobalStyle`
  @font-face {

@@ -4,13 +4,11 @@ import NavBar from '../../components/NavBar/index';
 import { ContainerCards, ContainerButton, BackButton, Button, ContainerOpacity, ContainerAbsolute } from './PersonagesElements';
 import MovieInfoClicked from '../../components/MovieInfoClicked'
 interface Props {
-  display?: boolean;
   addControl: any;
   data: object;
   control: number;
 }
 
-const display = false;
 const data = [
   {
     title: "Homem-Aranha",
@@ -74,21 +72,18 @@ const data = [
   }
 ]
 
-
 const Personages: React.FC<Props> = () => {
   const [value, setValue] = useState<number>(0);
   const [opacity, setOpacity] = useState<boolean>(false);
   const [firstPage, setfisrtPage] = useState<boolean>(true);
 
-
-
-  function addControl(value: number) {
-    console.log("entrou na função carai " + value)
+/*Função abaixo é para controle em relação a qual card clicamos*/ 
+  function addControl(value: number) {    
     setValue(value)
     if (value === 0) { setOpacity(false) }
     else setOpacity(true)
   }
-
+ /*Função abaixo atribui valor ao state para informar qual página estamos*/ 
   function secondPage(value: number) {
     if (value === 0) {
       setfisrtPage(false)
@@ -96,59 +91,53 @@ const Personages: React.FC<Props> = () => {
     else setfisrtPage(true)
   }
 
-
   return <>
 
-    {display === false && (<>
+    <NavBar Opacity={opacity} />
+    <ContainerButton>
 
-      <NavBar Opacity={opacity} />
-      <ContainerButton>
-        {firstPage === true && (<>
-          <ContainerCards>
-            {data.map((row) => row.id < 4 && (
-              <MovieInformation smallText={row.smallText} title={row.title} description={row.description} hero={row.hero} addControl={addControl} control={row.id} key={row.id} />))}
-          </ContainerCards>
-          <Button onClick={() => secondPage(0)}></Button>
-        </>)}
-        {firstPage === false && (<>
-          <BackButton onClick={() => secondPage(1)}></BackButton>
-          <ContainerCards>
-            {data.map((row) => row.id > 1 && (
-              <MovieInformation smallText={row.smallText} title={row.title} description={row.description} hero={row.hero} addControl={addControl} control={row.id} key={row.id} />))}
-          </ContainerCards>
-        </>)}
-      </ContainerButton>
-    </>)}
-    {firstPage === true && (<>
-      {display === false && value === 1 && (<>
-
-        <ContainerOpacity />
-        <ContainerAbsolute left>
-          {data.map(row => row.id === value && (
-            <MovieInfoClicked hero={row.hero} title={row.detailedName} aparitions={row.aparition1} aparitions2={row.aparition2} aparitions3={row.aparition3} aparitions4={row.aparition4} aparitions5={row.aparition5} stars={row.stars} leftSide={false} addControl={addControl} />))}
-        </ContainerAbsolute>
-
+      {firstPage === true && (<>
+        <ContainerCards>
+          {data.map((row) => row.id < 4 && (
+            <MovieInformation smallText={row.smallText} title={row.title} description={row.description} hero={row.hero} addControl={addControl} control={row.id} key={row.id} />))}
+        </ContainerCards>
+        <Button onClick={() => secondPage(0)}></Button>
       </>)}
-    </>)}
-    {firstPage === false && (<>
-      {display === false && value === 2 && firstPage === false && (<>
 
-        <ContainerOpacity />
-        <ContainerAbsolute left>
-          {data.map(row => row.id === value && (
-            <MovieInfoClicked hero={row.hero} title={row.detailedName} aparitions={row.aparition1} aparitions2={row.aparition2} aparitions3={row.aparition3} aparitions4={row.aparition4} aparitions5={row.aparition5} stars={row.stars} leftSide={true} addControl={addControl} />))}
-        </ContainerAbsolute>
+      {firstPage === false && (<>
+        <BackButton onClick={() => secondPage(1)}></BackButton>
+        <ContainerCards>
+          {data.map((row) => row.id > 1 && (
+            <MovieInformation smallText={row.smallText} title={row.title} description={row.description} hero={row.hero} addControl={addControl} control={row.id} key={row.id} />))}
+        </ContainerCards>
       </>)}
-    </>)}
-    {display === false && value === 2 && (<>
+    </ContainerButton>
 
+    {firstPage === true && value === 1 && (<>
+      <ContainerOpacity />
+      <ContainerAbsolute left>
+        {data.map(row => row.id === value && (
+          <MovieInfoClicked hero={row.hero} title={row.detailedName} aparitions={row.aparition1} aparitions2={row.aparition2} aparitions3={row.aparition3} aparitions4={row.aparition4} aparitions5={row.aparition5} stars={row.stars} leftSide={false} addControl={addControl} />))}
+      </ContainerAbsolute>
+    </>)}
+
+    {value === 2 && firstPage === false && (<>
+      <ContainerOpacity />
+      <ContainerAbsolute left>
+        {data.map(row => row.id === value && (
+          <MovieInfoClicked hero={row.hero} title={row.detailedName} aparitions={row.aparition1} aparitions2={row.aparition2} aparitions3={row.aparition3} aparitions4={row.aparition4} aparitions5={row.aparition5} stars={row.stars} leftSide={true} addControl={addControl} />))}
+      </ContainerAbsolute>
+    </>)}
+
+    {value === 2 && firstPage === true && (<>
       <ContainerOpacity />
       <ContainerAbsolute middle>
         {data.map(row => row.id === value && (
           <MovieInfoClicked left hero={row.hero} title={row.detailedName} aparitions={row.aparition1} aparitions2={row.aparition2} aparitions3={row.aparition3} aparitions4={row.aparition4} aparitions5={row.aparition5} stars={row.stars} leftSide={true} addControl={addControl} />))}
       </ContainerAbsolute>
     </>)}
-    {display === false && value === 3 && (<>
+
+    {value === 3 && firstPage === true && (<>
       <ContainerOpacity />
       <ContainerAbsolute right>
         {data.map(row => row.id === value && (
@@ -156,6 +145,21 @@ const Personages: React.FC<Props> = () => {
       </ContainerAbsolute>
     </>)}
 
+    {value === 3 && firstPage === false && (<>
+      <ContainerOpacity />
+      <ContainerAbsolute middle>
+        {data.map(row => row.id === value && (
+          <MovieInfoClicked left hero={row.hero} title={row.detailedName} aparitions={row.aparition1} aparitions2={row.aparition2} aparitions3={row.aparition3} aparitions4={row.aparition4} aparitions5={row.aparition5} stars={row.stars} leftSide={true} addControl={addControl} />))}
+      </ContainerAbsolute>
+    </>)}
+
+    {value === 4 && firstPage === false && (<>
+      <ContainerOpacity />
+      <ContainerAbsolute right>
+        {data.map(row => row.id === value && (
+          <MovieInfoClicked left hero={row.hero} title={row.detailedName} aparitions={row.aparition1} aparitions2={row.aparition2} aparitions3={row.aparition3} aparitions4={row.aparition4} aparitions5={row.aparition5} stars={row.stars} leftSide={true} addControl={addControl} />))}
+      </ContainerAbsolute>
+    </>)}
 
   </>
 }

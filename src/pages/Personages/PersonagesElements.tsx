@@ -1,4 +1,4 @@
-import styled, {css} from 'styled-components'
+import styled, { css } from 'styled-components'
 import ButtonRight from '../../assets/buttonRight.png'
 import ButtonLeft from '../../assets/buttonLeft.png'
 
@@ -10,21 +10,21 @@ interface CardSide {
 
 export const ContainerButton = styled.div`
 display: flex;
-background-color: gray;
+background-color:rgba(0,0,0,0) 100%;
 width: 100%;
 height: 100%;
-margin: auto;
+margin-top: 100px;
 
 `
 
 export const ContainerCards = styled.div`
 display: grid;
-background-color: green;
+background-color: rgba(0,0,0,0) 100%;;
 width: 100%;
 height: 100%;
-margin: auto;
 grid-template-columns: 1fr 1fr 1fr;
 grid-gap: 20px;
+margin-left: 50px;
 `;
 
 export const ContainerOpacity = styled.div`
@@ -47,17 +47,17 @@ top: 0;
 left: 0;
 align-self: flex-start;
 ${({ left }) => left &&
-        css`
+    css`
         left: -490px;
         top: 175px;
      }`}
      ${({ middle }) => middle &&
-        css`
+    css`
         left: -260px;
         top: 175px;
      }`} 
      ${({ right }) => right &&
-        css`
+    css`
         left: 311px;
         top: 175px;
      }`}     
@@ -72,6 +72,7 @@ export const Button = styled.button`
   background: url(${ButtonRight}); 
   border:none!important;
   align-self: center ;
+  margin-right: 80px;
   ;
   `
 export const BackButton = styled.button`
@@ -82,5 +83,7 @@ export const BackButton = styled.button`
   align-self: center;
   background: url(${ButtonLeft}); 
   border:none!important;
+  margin-right: 100px;
+  margin-left: 100px;
   ;
   `
