@@ -1,3 +1,4 @@
+
 html {
     font-size: 62.5%;
 }
@@ -7,3 +8,10 @@ html {
         font-size: 50%;
     }
 }
+
+
+body {
+    background: #eb01a5;
+    background-image: url("https://guiadoestudante.abril.com.br/wp-content/uploads/sites/4/2019/04/filmes-pra-assistir-antes-de-endgame.png"); /* fallback */
+    background-image: url("https://guiadoestudante.abril.com.br/wp-content/uploads/sites/4/2019/04/filmes-pra-assistir-antes-de-endgame.png"), linear-gradient(#eb01a5, #d13531); /* W3C */
+  }

@@ -13,13 +13,14 @@ interface Props {
   stars: number;
   leftSide: boolean;
   addControl: any;
+  left?:boolean;
 }
 const MovieInfoClicked: React.FC<Props> = (props) => {
-  const { hero, title, aparitions, aparitions2, aparitions3, aparitions4, aparitions5, stars, leftSide, addControl } = props;
+  const { hero, title, aparitions, aparitions2, aparitions3, aparitions4, aparitions5, stars, leftSide, addControl, left } = props;
   return <>
     <ContainerInfo>
       <RedBackground>
-        <FirstBackground hero={hero}>
+        <FirstBackground left={left} hero={hero}>
           <PhotoBackground leftSide={leftSide}></PhotoBackground>
         </FirstBackground>
         <DescriptionsContainer>

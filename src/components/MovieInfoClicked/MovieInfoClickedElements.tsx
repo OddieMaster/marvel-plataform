@@ -41,10 +41,10 @@ const handleStarsType = (stars: number) => {
 
 export const ContainerInfo = styled.div`
 display: flex;
-width: 100%;
-height: 720px;
-justify-content: flex-start;
-background: pink;
+width: 100vw;
+height:439px;
+justify-content: center;
+background:linear-gradient(90deg, rgba(145,29,29,0) 0%, rgba(255,0,0,0) 50%, rgba(145,29,29,0) 100%);
 flex-direction: row;
 `
 
@@ -60,7 +60,7 @@ ${({ leftSide }) => leftSide &&
 `
 export const RedBackground = styled.div<Sided>`
 display: flex;
-background: linear-gradient(90deg, rgba(255,0,0,1) 0%, rgba(255,0,0,1) 35%, rgba(144,12,12,1) 100%);
+ background: linear-gradient(90deg, rgba(145,29,29,1) 0%, rgba(255,0,0,1) 50%, rgba(145,29,29,1) 100%); 
 width: 650px;
 height: 439px;
 justify-content: flex-start;
@@ -80,6 +80,7 @@ height: 439px;
 justify-content: space-around;
 border-radius: 35px;
 flex-direction: column;
+
 `
 
 export const TitleClicked = styled.p`

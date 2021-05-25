@@ -6,7 +6,7 @@ import Hulk from '../../assets/hulkFINAL.jpg'
 
 interface HeroProps {
     hero: string;
-
+    left?:boolean;
 }
 interface smallText {
     smallText: boolean;
@@ -15,8 +15,10 @@ interface smallText {
 
 export const ContainerInfo = styled.div`
 display: flex;
-width: 289px;
+width: 300px;
 height: 439px;
+background: red;
+justify-content: center;
 `
 
 const handleBackgroundType = (hero: string) => {
@@ -42,9 +44,12 @@ display: flex;
 background:red;
 background-image:url(${({ hero }) => handleBackgroundType(hero)});
 height: 439px;
-position: relative;
 border-radius: 35px;
-
+order: 0;
+${({ left }) => left &&
+        css`
+        order: 1;
+     }`}
 `
 
 export const InfoBackground = styled.div`
@@ -76,12 +81,14 @@ color: white;
 font-size: 22px;
 margin-bottom: 10px;
 margin-top: 30px;
+font-family: system-ui;
 `
 export const Description = styled.p<smallText>`
 display: flex;
 color: white;
-font-size: 15px;
+font-size: 14px;
 margin-top: -5px;
+font-family: system-ui;
 margin-left: 10px;
 margin-right: 3px;
 ${({ smallText }) => smallText &&

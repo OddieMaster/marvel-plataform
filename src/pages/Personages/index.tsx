@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import MovieInformation from '../../components/MovieInformation';
 import NavBar from '../../components/NavBar/index';
-import { Container, Button, ContainerAbsolute  } from './PersonagesElements';
+import { ContainerCards, ContainerButton, BackButton, Button, ContainerOpacity, ContainerAbsolute } from './PersonagesElements';
 import MovieInfoClicked from '../../components/MovieInfoClicked'
 interface Props {
   display?: boolean;
@@ -56,51 +56,107 @@ const data = [
     aparition4: "Vingadores - Ultimato",
     aparition5: "WandaVision",
     stars: 4
+  },
+  {
+    title: "Hulk",
+    description: "Na história original dos quadrinhos, o Hulk é um selvagem e poderoso alter ego do Dr. Robert Bruce Banner, um cientista que foi atingido por raios gama enquanto salvava um adolescente durante o teste militar",
+    hero: "hulk",
+    heroPosition: "/PersonagesInfoRight",
+    smallText: false,
+    id: 4,
+    detailedName: "Hulk",
+    aparition1: "Vingadores",
+    aparition2: "Vingadores - Era de Ultron",
+    aparition3: "Thor - Ragnarok",
+    aparition4: "Vingadores - Guerra Infinita",
+    aparition5: "Vingadores - Ultimato",
+    stars: 4
   }
 ]
 
 
 const Personages: React.FC<Props> = () => {
   const [value, setValue] = useState<number>(0);
+  const [opacity, setOpacity] = useState<boolean>(false);
+  const [firstPage, setfisrtPage] = useState<boolean>(true);
+
+
 
   function addControl(value: number) {
     console.log("entrou na função carai " + value)
     setValue(value)
+    if (value === 0) { setOpacity(false) }
+    else setOpacity(true)
   }
-  console.log(value)
+
+  function secondPage(value: number) {
+    if (value === 0) {
+      setfisrtPage(false)
+    }
+    else setfisrtPage(true)
+  }
+
+
   return <>
-      
-      {display === false && (<>
-        <NavBar />
-        <Container>
-          {data.map((row) => (
-            <MovieInformation smallText={row.smallText} title={row.title} description={row.description} hero={row.hero} addControl={addControl} control={row.id} key={row.id} />))}
-          <Button></Button>
-        </Container>
-      </>)}
-      
+
+    {display === false && (<>
+
+      <NavBar Opacity={opacity} />
+      <ContainerButton>
+        {firstPage === true && (<>
+          <ContainerCards>
+            {data.map((row) => row.id < 4 && (
+              <MovieInformation smallText={row.smallText} title={row.title} description={row.description} hero={row.hero} addControl={addControl} control={row.id} key={row.id} />))}
+          </ContainerCards>
+          <Button onClick={() => secondPage(0)}></Button>
+        </>)}
+        {firstPage === false && (<>
+          <BackButton onClick={() => secondPage(1)}></BackButton>
+          <ContainerCards>
+            {data.map((row) => row.id > 1 && (
+              <MovieInformation smallText={row.smallText} title={row.title} description={row.description} hero={row.hero} addControl={addControl} control={row.id} key={row.id} />))}
+          </ContainerCards>
+        </>)}
+      </ContainerButton>
+    </>)}
+    {firstPage === true && (<>
       {display === false && value === 1 && (<>
-        <ContainerAbsolute>
-        
-        <Container>
+
+        <ContainerOpacity />
+        <ContainerAbsolute left>
           {data.map(row => row.id === value && (
             <MovieInfoClicked hero={row.hero} title={row.detailedName} aparitions={row.aparition1} aparitions2={row.aparition2} aparitions3={row.aparition3} aparitions4={row.aparition4} aparitions5={row.aparition5} stars={row.stars} leftSide={false} addControl={addControl} />))}
-        </Container>
+        </ContainerAbsolute>
+
+      </>)}
+    </>)}
+    {firstPage === false && (<>
+      {display === false && value === 2 && firstPage === false && (<>
+
+        <ContainerOpacity />
+        <ContainerAbsolute left>
+          {data.map(row => row.id === value && (
+            <MovieInfoClicked hero={row.hero} title={row.detailedName} aparitions={row.aparition1} aparitions2={row.aparition2} aparitions3={row.aparition3} aparitions4={row.aparition4} aparitions5={row.aparition5} stars={row.stars} leftSide={true} addControl={addControl} />))}
         </ContainerAbsolute>
       </>)}
-      {display === false && value === 2 && (<>
-        <Container>
-          {data.map(row => row.id === value && (
-            <MovieInfoClicked hero={row.hero} title={row.detailedName} aparitions={row.aparition1} aparitions2={row.aparition2} aparitions3={row.aparition3} aparitions4={row.aparition4} aparitions5={row.aparition5} stars={row.stars} leftSide={true} addControl={addControl} />))}
-        </Container>
-      </>)}
-      {display === false && value === 3 && (<>
-        <Container>
-          {data.map(row => row.id === value && (
-            <MovieInfoClicked hero={row.hero} title={row.detailedName} aparitions={row.aparition1} aparitions2={row.aparition2} aparitions3={row.aparition3} aparitions4={row.aparition4} aparitions5={row.aparition5} stars={row.stars} leftSide={true} addControl={addControl} />))}
-        </Container>
-      </>)}
-      
+    </>)}
+    {display === false && value === 2 && (<>
+
+      <ContainerOpacity />
+      <ContainerAbsolute middle>
+        {data.map(row => row.id === value && (
+          <MovieInfoClicked left hero={row.hero} title={row.detailedName} aparitions={row.aparition1} aparitions2={row.aparition2} aparitions3={row.aparition3} aparitions4={row.aparition4} aparitions5={row.aparition5} stars={row.stars} leftSide={true} addControl={addControl} />))}
+      </ContainerAbsolute>
+    </>)}
+    {display === false && value === 3 && (<>
+      <ContainerOpacity />
+      <ContainerAbsolute right>
+        {data.map(row => row.id === value && (
+          <MovieInfoClicked left hero={row.hero} title={row.detailedName} aparitions={row.aparition1} aparitions2={row.aparition2} aparitions3={row.aparition3} aparitions4={row.aparition4} aparitions5={row.aparition5} stars={row.stars} leftSide={true} addControl={addControl} />))}
+      </ContainerAbsolute>
+    </>)}
+
+
   </>
 }
 
